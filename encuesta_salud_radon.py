@@ -1,10 +1,6 @@
 import streamlit as st
 import pandas as pd
 import os
-st.title("Título grande (H1)")
-st.header("Encabezado mediano (H2)")
-st.subheader("Encabezado pequeño (H3)")
-st.markdown("Texto normal")
 
 # --- Configuración inicial ---
 st.set_page_config(page_title="Encuesta Radón y Salud", layout="centered")
