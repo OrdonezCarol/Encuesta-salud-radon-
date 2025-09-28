@@ -1,7 +1,21 @@
 import streamlit as st
 import pandas as pd
 import os
-
+st.markdown(
+    """
+    <style>
+    .section-title {
+        font-size: 28px !important;
+        font-weight: bold;
+        color: #2C3E50;   /* azul oscuro */
+        font-family: 'Georgia', serif;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # --- Configuración inicial ---
 st.set_page_config(page_title="Encuesta Radón y Salud", layout="centered")
 
@@ -36,7 +50,7 @@ if consentimiento == "No, no acepto":
 respuestas = {"consentimiento": consentimiento}
 
 # --- Sección A ---
-st.header("Sección A: DATOS GENERALES DEL PARTICIPANTE")
+st.markdown("Sección A: Vínculo con medición de radón", unsafe_allow_html=True, help=None)
 respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
 respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
 respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Otro"])
