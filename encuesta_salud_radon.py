@@ -33,9 +33,9 @@ def guardar_respuesta(respuestas_dict):
         df_final = df_nueva
     df_final.to_csv(DATA_FILE, index=False)
 
-# --- Pantalla 1: Consentimiento ---
-st.title("Encuesta: Salud respiratoria y exposición a radón")
-st.header("Consentimiento informado")
+# ---  Consentimiento ---
+st.markdown('<div class="section-title">Encuesta: Salud respiratoria y exposición a radón</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Consentimiento informado</div>', unsafe_allow_html=True)
 
 consentimiento = st.radio(
    " Usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda en el 2016-2019. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria, anónima y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración aproximada de 10 minutos. ¿Acepta participar?",
