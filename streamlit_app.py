@@ -73,10 +73,14 @@ if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
 
 respuestas["enf_respiratoria"] = st.multiselect("¿ Usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Ninguna", "Otro"])
+
 respuestas["cancer_pulmon"] = st.radio("¿ Algun familiar con quien convivió con usted tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
+
 if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+    
 respuestas["enf_respiratoria"] = st.multiselect("¿ Algun familiar con quien convivió con usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Ninguna", "Otro"])
+
 # --- Sección E ---
 st.header("Sección E: Síntomas respiratorios")
 sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Dolor torácico", "Fatiga persistente"]
