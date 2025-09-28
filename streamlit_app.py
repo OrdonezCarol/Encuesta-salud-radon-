@@ -46,10 +46,10 @@ respuestas["distrito de residencia"] = st.text_input("Escriba el distrito")
 
 # --- Sección B ---
 st.header("Sección B: VINCULO CON LA MEDICION DE RADON EN SU VIVIENDA")
-vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda desde el 2023?", ["Sí", "No"])
+vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda desde el 2016?", ["Sí", "No"])
 respuestas["vive_misma_vivienda"] = vivienda_actual
 if vivienda_actual == "No":
-    respuestas["tiempo_vivio_2023_meses"] = st.number_input("¿Durante cuánto tiempo vivió en esa vivienda en 2023? (meses)", min_value=0, step=1)
+    respuestas["tiempo_vivio_2023_meses"] = st.number_input("¿Durante cuánto tiempo vivió en esa vivienda en 2016? (meses)", min_value=0, step=1)
 respuestas["enf_respiratoria"] = st.multiselect("¿ Dónde colocó el dispositivo de monitoreo de radón?", ["Sala", "Cocina", "Dormitorio", "Baño", "Garaje", "Sotano", "Semisotano", "Primer piso","Segundo piso", "Otro"])
 
 # --- Sección C ---
@@ -77,12 +77,15 @@ respuestas["cancer_pulmon"] = st.radio("¿ Usted tiene diagnóstico de cáncer d
 if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
 respuestas["enf_respiratoria"] = st.multiselect("¿ Usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
+
 respuestas["diabetes"] = st.radio("¿ Usted tiene diagnóstico de Diabetes mellitus?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["diabetes"] == "Sí":
     respuestas["año_dx_diabetes"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
-    respuestas["hipertension"] = st.radio("¿ Usted tiene diagnóstico de Hipertension arterial?", ["Sí", "No", "Prefiero no decir"])
+    
+respuestas["hipertension"] = st.radio("¿ Usted tiene diagnóstico de Hipertension arterial?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["hipertension"] == "Sí":
     respuestas["año_dx_hipertension"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+
 respuestas["cancer_pulmon_fam"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["cancer_pulmon_fam"] == "Sí":
     respuestas["año_dx_cancer_fam"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
