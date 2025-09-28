@@ -24,7 +24,7 @@ st.title("Encuesta: Salud respiratoria y exposición a radón")
 st.header("Consentimiento informado")
 
 consentimiento = st.radio(
-   "Usted ha sido invitado(a) a participar en el estudio.Su participación es voluntaria, anónima/confidencial y puede retirarse en cualquier momento. La encuesta toma ~10 minutos. ¿Acepta participar?",
+   "Usted ha sido invitado(a) a participar en el estudio.Su participación es voluntaria, anónima/confidencial y puede retirarse en cualquier momento. La encuesta toma aproximadamente 10 minutos. ¿Acepta participar?",
     ["Sí, acepto", "No, no acepto"]
 )
 
