@@ -80,15 +80,14 @@ respuestas["enf_respiratoria_cronica"] = st.multiselect("¿ Usted tiene diagnós
 
 respuestas["diabetes"] = st.radio("¿ Usted tiene diagnóstico de Diabetes mellitus?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["diabetes"] == "Sí":
-    respuestas["año_dx_diabetes"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+    
 
 respuestas["hipertension"] = st.radio("¿ Usted tiene diagnóstico de Hipertension arterial?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["hipertension"] == "Sí":
-    respuestas["año_dx_hipertension"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
-
+    
 respuestas["cancer_pulmon_fam"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["cancer_pulmon_fam"] == "Sí":
-    respuestas["año_dx_cancer_fam"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+    
     respuestas["enf_respiratoria_fam"] = st.multiselect("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
 
 # --- Sección E ---
