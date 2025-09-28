@@ -59,7 +59,7 @@ respuestas["estado_civil"] = st.selectbox("Estado civil", ["Soltero", "Casado", 
 respuestas["distrito de residencia"] = st.text_input("Escriba el distrito")
 
 # --- Sección B ---
-st.header("Sección B: VINCULO CON LA MEDICION DE RADON EN SU VIVIENDA")
+st.markdown('<div class="section-title">Sección B: Datos sociodemográficos</div>', unsafe_allow_html=True)
 vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda desde el 2016?", ["Sí", "No"])
 respuestas["vive_misma_vivienda"] = vivienda_actual
 if vivienda_actual == "No":
@@ -67,7 +67,7 @@ if vivienda_actual == "No":
 respuestas["enf_respiratoria"] = st.multiselect("¿ Dónde colocó el dispositivo de monitoreo de radón?", ["Sala", "Cocina", "Dormitorio", "Baño", "Garaje", "Sotano", "Semisotano", "Primer piso","Segundo piso", "Otro"])
 
 # --- Sección C ---
-st.header("Sección C: Exposicion ambiental y laboral")
+st.markdown('<div class="section-title">"Sección C: Exposicion ambiental y laboral</div>', unsafe_allow_html=True)
 respuestas["fumaba_2023"] = st.radio("¿Usted fuma?", ["Nunca fumé", "Exfumador", "Fumador actual"])
 if respuestas["fumaba_2023"] in ["Exfumador", "Fumador actual"]:
     respuestas["paquetes_año"] = st.number_input("Paquetes-año aproximados", min_value=0.0, step=0.1)
@@ -86,7 +86,7 @@ if respuestas["trabajo_expuesto_carcinogenos"] == "Sí":
     respuestas["ocupacion_carcinogenos"] = st.text_input("Especifique la ocupación (mineria, soldadura, construccion, industria quimica, etc")
 
 # --- Sección D ---
-st.header("Sección D: Antecedentes médicos")
+st.markdown('<div class="section-title">Sección D: Antecedentes médicos</div>', unsafe_allow_html=True)
 respuestas["cancer_pulmon"] = st.radio("¿ Usted tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
@@ -98,7 +98,8 @@ if respuestas["hipertension"] == "Sí":
 respuestas["enf_respiratoria_fam"] = st.multiselect("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
 
 # --- Sección E ---
-st.header("Sección E: Síntomas respiratorios. Instrucción: Marque si ha tenido estos síntomas desde 2016 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)")
+st.markdown('<div class="section-title">Sección E: Síntomas respiratorios</div>', unsafe_allow_html=True) 
+st.markdown('<div class="section-title">Instrucción: Marque si ha tenido estos síntomas desde 2016 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)</div>', unsafe_allow_html=True) 
 sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Pérdida de apetito", "Fiebre o sensacion de alza termica", "Dolor torácico", "Fatiga persistente","atencio medica", "pruebas adicionales"]
 respuestas_sintomas = {}
 for sintoma in sintomas:
@@ -110,7 +111,7 @@ for sintoma in sintomas:
 respuestas["sintomas"] = respuestas_sintomas
 
 # --- Sección F ---
-st.header("Sección F: Identificación de barreras de acceso a servicios de salud")
+st.markdown('<div class="section-title">Sección F: Identificación de barreras de acceso a servicios de salud</div>', unsafe_allow_html=True) 
 respuestas["seguro"] = st.radio("¿Cuenta con seguro médico de salud", ["Sí", "No"])
 if respuestas["seguro"] == "Sí":
     respuestas["tipo_seguro"] = st.multiselect("¿ Qué tipo de seguro medico de salud?", ["Essalud", "SIS", "Privado", "Seguro universitario", "Otro"])
