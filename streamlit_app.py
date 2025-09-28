@@ -39,7 +39,7 @@ respuestas = {"consentimiento": consentimiento}
 st.header("Sección A: DATOS GENERALES DEL PARTICIPANTE")
 respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
 respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
-respuestas["raza"] = st.st.selectbox("Raza o etnicidad", ["Blanco", "Mestizo", "Afroperuano", "Otro"])
+respuestas["raza"] = st.st.selectbox("Raza", ["Blanco", "Mestizo", "Afroperuano", "Otro"])
 respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Otro"])
 respuestas["ocupacion"] = st.selectbox("Ocupacion", ["Trabajador dependiente", "Trabajador independiente", "Desempleado", "Ama de casa", "Otro"])
 respuestas["estado_civil"] = st.selectbox("Estado civil", ["Soltero", "Casado", "Viudo", "Divorciado", "Pareja conviviente"])
