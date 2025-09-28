@@ -102,6 +102,7 @@ for sintoma in sintomas:
 respuestas["sintomas"] = respuestas_sintomas
 
 # --- Sección F ---
+st.header("Sección F: Identificación de barreras de acceso a servicios de salud")
 respuestas["seguro"] = st.radio("¿Cuenta con seguro médico de salud", ["Sí", "No"])
     if respuestas["seguro"] == "Sí":
 respuestas["tipo_seguro"] = st.multiselect("¿Qué tipo de seguro medico de salud?", ["Essalud", "SIS", "Privado", "Seguro universitario", "Otro"])
