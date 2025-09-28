@@ -24,7 +24,7 @@ st.title("Encuesta: Salud respiratoria y exposición a radón")
 st.header("Consentimiento informado")
 
 consentimiento = st.radio(
-   "Usted ha sido invitado(a) a participar en el estudio.Su participación es voluntaria, anónima/confidencial y puede retirarse en cualquier momento. La encuesta toma aproximadamente 10 minutos. ¿Acepta participar?",
+   " En el 2023 usted participó en un estudio donde realizaron mediciones de radon en su vivienda. Por ello, ahora usted ha sido invitado(a) a participar en el estudio.Su participación es voluntaria, anónima/confidencial y puede retirarse en cualquier momento. La encuesta toma aproximadamente 10 minutos. ¿Acepta participar?",
     ["Sí, acepto", "No, no acepto"]
 )
 
@@ -37,7 +37,7 @@ respuestas = {"consentimiento": consentimiento}
 
 # --- Sección A ---
 st.header("Sección A: Vínculo con medición de radón")
-vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda medida en 2023?", ["Sí", "No"])
+vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda desde el 2023?", ["Sí", "No"])
 respuestas["vive_misma_vivienda"] = vivienda_actual
 if vivienda_actual == "No":
     respuestas["tiempo_vivio_2023_meses"] = st.number_input("¿Durante cuánto tiempo vivió en esa vivienda en 2023? (meses)", min_value=0, step=1)
@@ -50,15 +50,15 @@ respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario 
 
 # --- Sección C ---
 st.header("Sección C: Exposiciones respiratorias relevantes")
-respuestas["fumaba_2023"] = st.radio("¿Fumaba en 2023?", ["Nunca fumé", "Exfumador", "Fumador actual"])
+respuestas["fumaba_2023"] = st.radio("¿Fumaba en el 2023?", ["Nunca fumé", "Exfumador", "Fumador actual"])
 if respuestas["fumaba_2023"] in ["Exfumador", "Fumador actual"]:
     respuestas["paquetes_año"] = st.number_input("Paquetes-año aproximados", min_value=0.0, step=0.1)
 
-respuestas["fumadores_casa"] = st.radio("¿Vivía alguien que fumara en su casa en 2023?", ["Sí", "No", "No recuerdo"])
+respuestas["fumadores_casa"] = st.radio("¿Usted vivía con alguien que fumaba en la casa en el 2023?", ["Sí", "No", "No recuerdo"])
 if respuestas["fumadores_casa"] == "Sí":
     respuestas["num_fumadores_casa"] = st.number_input("Número de fumadores en la vivienda (sin incluirlo)", min_value=1, step=1)
 
-respuestas["combustibles"] = st.radio("¿Usaba combustibles sólidos/leña para cocinar o calefacción en 2023?", ["Sí, frecuentemente", "A veces", "No"])
+respuestas["combustibles"] = st.radio("¿Usaba combustibles sólidos/leña para cocinar o calefacción en el 2023?", ["Sí, frecuentemente", "A veces", "No"])
 if respuestas["combustibles"] != "No":
     respuestas["tipo_combustible"] = st.multiselect("¿Qué combustible?", ["Leña", "Carbón", "Kerosene", "Gas", "Otro"])
 
@@ -68,12 +68,15 @@ if respuestas["trabajo_expuesto"] == "Sí":
 
 # --- Sección D ---
 st.header("Sección D: Antecedentes médicos")
-respuestas["cancer_pulmon"] = st.radio("¿Tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
+respuestas["cancer_pulmon"] = st.radio("¿ Usted tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
 
-respuestas["enf_respiratoria"] = st.multiselect("Diagnóstico de enfermedad respiratoria crónica", ["Asma", "EPOC", "Bronquitis crónica", "Ninguna", "Otro"])
-
+respuestas["enf_respiratoria"] = st.multiselect("¿ Usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Ninguna", "Otro"])
+respuestas["cancer_pulmon"] = st.radio("¿ Algun familiar con quien convivió con usted tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
+if respuestas["cancer_pulmon"] == "Sí":
+    respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+respuestas["enf_respiratoria"] = st.multiselect("¿ Algun familiar con quien convivió con usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Ninguna", "Otro"])
 # --- Sección E ---
 st.header("Sección E: Síntomas respiratorios")
 sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Dolor torácico", "Fatiga persistente"]
