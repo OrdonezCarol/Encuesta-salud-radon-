@@ -106,8 +106,7 @@ st.header("Sección F: Identificación de barreras de acceso a servicios de salu
 respuestas["seguro"] = st.radio("¿Cuenta con seguro médico de salud", ["Sí", "No"])
 if respuestas["seguro"] == "Sí":
 respuestas["tipo_seguro"] = st.multiselect("¿ Qué tipo de seguro medico de salud?", ["Essalud", "SIS", "Privado", "Seguro universitario", "Otro"])
-
-    respuestas["economico"] = st.radio("¿Usted ha dejado de acudir a consultas médicas por motivos económicos", ["Sí", "No"])
+respuestas["economico"] = st.radio("¿Usted ha dejado de acudir a consultas médicas por motivos económicos", ["Sí", "No"])
 respuestas["distancia"] = st.radio("¿Usted encuentra dificultades para acceder a servicios de salud debido a la distancia", ["Sí", "No"])
 respuestas["sinatenccion"] = st.radio("¿En algún centro de salud lo han dejado de atender por su condición de étnica, orientación sexual o discapacidad", ["Sí", "No"])
 respuestas["creencias"] = st.radio("¿Ha dejado de realizarse procedimientos médicos por sus creencias religiosas o culturales", ["Sí", "No"])
