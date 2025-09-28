@@ -24,8 +24,7 @@ st.title("Encuesta: Salud respiratoria y exposición a radón")
 st.header("Consentimiento informado")
 
 consentimiento = st.radio(
-    " Usted ha sido invitado(a) a participar en el estudio: Asociación entre los niveles de radón residencial medidos en 2023 y la presencia de síntomas respiratorios crónicos compatibles con cáncer de pulmón en estudiantes universitarios y convivientes en Lima el 2025. 
-Su participación es voluntaria, anónima/confidencial y puede retirarse en cualquier momento. La encuesta toma ~10 minutos. ¿Acepta participar y que sus respuestas sean utilizadas para investigación?",
+   "Usted ha sido invitado(a) a participar en el estudio.Su participación es voluntaria, anónima/confidencial y puede retirarse en cualquier momento. La encuesta toma ~10 minutos. ¿Acepta participar?",
     ["Sí, acepto", "No, no acepto"]
 )
 
