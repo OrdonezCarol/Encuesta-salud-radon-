@@ -91,7 +91,7 @@ for sintoma in sintomas:
     con_sintoma = st.checkbox(f"{sintoma}", key=f"sintoma_{sintoma}")
     if con_sintoma:
         inicio = st.number_input(f"Año de inicio de {sintoma}", min_value=1900, max_value=2025, step=1, key=f"inicio_{sintoma}")
-        severidad = st.radio(f"Severidad de {sintoma} (1=leve, 5=muy severo)", [1, 2, 3, 4, 5], key=f"severidad_{sintoma}")
+        severidad = st.slider(f"Severidad de {sintoma} (1=leve, 5=muy severo)", 1, 5, 1)
         respuestas_sintomas[sintoma] = {"inicio": inicio, "severidad": severidad}
 respuestas["sintomas"] = respuestas_sintomas
 
