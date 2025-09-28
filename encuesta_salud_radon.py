@@ -77,18 +77,11 @@ respuestas["cancer_pulmon"] = st.radio("¿ Usted tiene diagnóstico de cáncer d
 if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
 respuestas["enf_respiratoria_cronica"] = st.multiselect("¿ Usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"], key="enf_respiratoria_cronica")
-
 respuestas["diabetes"] = st.radio("¿ Usted tiene diagnóstico de Diabetes mellitus?", ["Sí", "No", "Prefiero no decir"])
-if respuestas["diabetes"] == "Sí":
-    
-
-respuestas["hipertension"] = st.radio("¿ Usted tiene diagnóstico de Hipertension arterial?", ["Sí", "No", "Prefiero no decir"])
+    respuestas["hipertension"] = st.radio("¿ Usted tiene diagnóstico de Hipertension arterial?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["hipertension"] == "Sí":
-    
-respuestas["cancer_pulmon_fam"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
-if respuestas["cancer_pulmon_fam"] == "Sí":
-    
-    respuestas["enf_respiratoria_fam"] = st.multiselect("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
+    respuestas["cancer_pulmon_fam"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
+respuestas["enf_respiratoria_fam"] = st.multiselect("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
 
 # --- Sección E ---
 st.header("Sección E: Síntomas respiratorios. Instrucción: Marque si ha tenido estos síntomas desde 2016 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)")
