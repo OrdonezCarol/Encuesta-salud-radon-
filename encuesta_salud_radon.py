@@ -50,7 +50,7 @@ if consentimiento == "No, no acepto":
 respuestas = {"consentimiento": consentimiento}
 
 # --- Sección A ---
-st.markdown("Sección A: Vínculo con medición de radón", unsafe_allow_html=True, help=None)
+st.markdown('<div class="section-title">Sección A: Vínculo con medición de radón</div>', unsafe_allow_html=True)
 respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
 respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
 respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Otro"])
@@ -67,7 +67,7 @@ if vivienda_actual == "No":
 respuestas["enf_respiratoria"] = st.multiselect("¿ Dónde colocó el dispositivo de monitoreo de radón?", ["Sala", "Cocina", "Dormitorio", "Baño", "Garaje", "Sotano", "Semisotano", "Primer piso","Segundo piso", "Otro"])
 
 # --- Sección C ---
-st.markdown('<div class="section-title">"Sección C: Exposicion ambiental y laboral</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Sección C: Exposicion ambiental y laboral</div>', unsafe_allow_html=True)
 respuestas["fumaba_2023"] = st.radio("¿Usted fuma?", ["Nunca fumé", "Exfumador", "Fumador actual"])
 if respuestas["fumaba_2023"] in ["Exfumador", "Fumador actual"]:
     respuestas["paquetes_año"] = st.number_input("Paquetes-año aproximados", min_value=0.0, step=0.1)
