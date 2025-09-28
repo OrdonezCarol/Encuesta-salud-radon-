@@ -24,7 +24,7 @@ st.title("Encuesta: Salud respiratoria y exposición a radón")
 st.header("Consentimiento informado")
 
 consentimiento = st.radio(
-   " En el año 2023 usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria, anónima y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración aproximada de 10 minutos. ¿Acepta participar?",
+   " Usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda en el 2016-2019. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria, anónima y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración aproximada de 10 minutos. ¿Acepta participar?",
     ["Sí, acepto", "No, no acepto"]
 )
 
@@ -36,52 +36,65 @@ if consentimiento == "No, no acepto":
 respuestas = {"consentimiento": consentimiento}
 
 # --- Sección A ---
-st.header("Sección A: Vínculo con medición de radón")
+st.header("Sección A: DATOS GENERALES DEL PARTICIPANTE")
+respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
+respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
+respuestas["raza"] = st.st.selectbox("Raza o etnicidad", ["Blanco", "Mestizo", "Afroperuano", "Otro"])
+respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Otro"])
+respuestas["ocupacion"] = st.selectbox("Ocupacion", ["Trabajador dependiente", "Trabajador independiente", "Desempleado", "Ama de casa", "Otro"])
+respuestas["estado_civil"] = st.selectbox("Estado civil", ["Soltero", "Casado", "Viudo", "Divorciado", "Pareja conviviente"])
+respuestas["distrito de residencia"] = st.text_input("Escriba el distrito")
+
+# --- Sección B ---
+st.header("Sección B: VINCULO CON LA MEDICION DE RADON EN SU VIVIENDA")
 vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda desde el 2023?", ["Sí", "No"])
 respuestas["vive_misma_vivienda"] = vivienda_actual
 if vivienda_actual == "No":
     respuestas["tiempo_vivio_2023_meses"] = st.number_input("¿Durante cuánto tiempo vivió en esa vivienda en 2023? (meses)", min_value=0, step=1)
-
-# --- Sección B ---
-st.header("Sección B: Datos sociodemográficos")
-respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
-respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
-respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Otro"])
+respuestas["enf_respiratoria"] = st.multiselect("¿ Dónde colocó el dispositivo de monitoreo de radón?", ["Sala", "Cocina", "Dormitorio", "Baño", "Garaje", "Sotano", "Semisotano", "Primer piso","Segundo piso", "Otro"])
 
 # --- Sección C ---
-st.header("Sección C: Exposiciones respiratorias relevantes")
-respuestas["fumaba_2023"] = st.radio("¿Fumaba en el 2023?", ["Nunca fumé", "Exfumador", "Fumador actual"])
+st.header("Sección C: Exposicion ambiental y laboral")
+respuestas["fumaba_2023"] = st.radio("¿Usted fuma?", ["Nunca fumé", "Exfumador", "Fumador actual"])
 if respuestas["fumaba_2023"] in ["Exfumador", "Fumador actual"]:
     respuestas["paquetes_año"] = st.number_input("Paquetes-año aproximados", min_value=0.0, step=0.1)
 
-respuestas["fumadores_casa"] = st.radio("¿Usted vivía con alguien que fumaba en la casa en el 2023?", ["Sí", "No", "No recuerdo"])
+respuestas["fumadores_casa"] = st.radio("¿Vive con alguien que fumaba?", ["Sí", "No", "No recuerdo"])
 if respuestas["fumadores_casa"] == "Sí":
     respuestas["num_fumadores_casa"] = st.number_input("Número de fumadores en la vivienda (sin incluirlo)", min_value=1, step=1)
 
-respuestas["combustibles"] = st.radio("¿Usaba combustibles sólidos/leña para cocinar o calefacción en el 2023?", ["Sí, frecuentemente", "A veces", "No"])
+respuestas["combustibles"] = st.radio("¿Usa combustibles sólidos o leña para cocinar o calefacción en su vivienda?", ["Sí, frecuentemente", "A veces", "No"])
 if respuestas["combustibles"] != "No":
     respuestas["tipo_combustible"] = st.multiselect("¿Qué combustible?", ["Leña", "Carbón", "Kerosene", "Gas", "Otro"])
 
-respuestas["trabajo_expuesto"] = st.radio("¿Trabajó en 2023 en ocupaciones con exposición a carcinógenos respiratorios?", ["Sí", "No", "No recuerdo"])
+respuestas["trabajo_expuesto"] = st.radio("¿Ha estado expuesto regularmente al humo del tabaco en su lugar de trabajo?", ["Sí", "No", "No recuerdo"])
+respuestas["trabajo_expuesto"] = st.radio("¿TRabajó en ocupaciones con posibles agentes carcinogenos respiratorios como el asbesto?", ["Sí", "No", "No recuerdo"])
 if respuestas["trabajo_expuesto"] == "Sí":
-    respuestas["ocupacion"] = st.text_input("Especifique la ocupación")
+    respuestas["ocupacion"] = st.text_input("Especifique la ocupación (mineria, soldadura, construccion, industria quimica, etc")
 
 # --- Sección D ---
 st.header("Sección D: Antecedentes médicos")
 respuestas["cancer_pulmon"] = st.radio("¿ Usted tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
 if respuestas["cancer_pulmon"] == "Sí":
     respuestas["año_dx_cancer"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
-
-respuestas["enf_respiratoria"] = st.multiselect("¿ Usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Ninguna", "Otro"])
-
-respuestas["cancer_pulmon"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
+respuestas["enf_respiratoria"] = st.multiselect("¿ Usted tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
+respuestas["diabetes"] = st.radio("¿ Usted tiene diagnóstico de Diabetes mellitus?", ["Sí", "No", "Prefiero no decir"])
+if respuestas["diabetes"] == "Sí":
+    respuestas["año_dx_diabetes"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+    respuestas["hipertension"] = st.radio("¿ Usted tiene diagnóstico de Hipertension arterial?", ["Sí", "No", "Prefiero no decir"])
+if respuestas["hipertension"] == "Sí":
+    respuestas["año_dx_hipertension"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+respuestas["cancer_pulmon_fam"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
+if respuestas["cancer_pulmon_fam"] == "Sí":
+    respuestas["año_dx_cancer_fam"] = st.number_input("Año del diagnóstico", min_value=1900, max_value=2025, step=1)
+    respuestas["enf_respiratoria_fam"] = st.multiselect("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de enfermedad respiratoria crónica?", ["Asma", "EPOC", "Bronquitis crónica", "Efisema pulmonar","Ninguna", "Otro"])
 
 # --- Sección E ---
-st.header("Sección E: Síntomas respiratorios. Instrucción: Marque si ha tenido estos síntomas desde 2023 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)")
-sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Dolor torácico", "Fatiga persistente"]
+st.header("Sección E: Síntomas respiratorios. Instrucción: Marque si ha tenido estos síntomas desde 2016 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)")
+sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Pérdida de apetito", "Fiebre o sensacion de alza termica", "Dolor torácico", "Fatiga persistente","atencio medica", "pruebas adicionales"]
 respuestas_sintomas = {}
 for sintoma in sintomas:
-    con_sintoma = st.checkbox(f"{sintoma}")
+    con_sintoma = st.checkbox(f"{sintoma}")    
     if con_sintoma:
         inicio = st.number_input(f"Año de inicio de {sintoma}", min_value=1900, max_value=2025, step=1)
         severidad = st.slider(f"Severidad de {sintoma} (1=leve, 5=muy severo)", 1, 5, 1)
@@ -89,19 +102,14 @@ for sintoma in sintomas:
 respuestas["sintomas"] = respuestas_sintomas
 
 # --- Sección F ---
-st.header("Sección F: Impacto y acceso a salud")
-respuestas["seguro_salud"] = st.radio("¿Cuenta con seguro de salud?", ["Sí, público", "Sí, privado", "No"])
-respuestas["limitaciones_salud"] = st.radio("¿Tuvo limitaciones para acceder a salud desde 2023?", ["Sí", "No"])
-if respuestas["limitaciones_salud"] == "Sí":
-    respuestas["detalle_limitaciones"] = st.text_area("Explique brevemente")
-
-# --- Sección G ---
-st.header("Sección G: Disposición al seguimiento")
-respuestas["cambio_sintomas"] = st.radio("¿Cómo evolucionaron sus síntomas?", ["Mejorado", "Empeorado", "Sin cambios", "No aplica"])
-respuestas["contacto_profesional"] = st.radio("¿Desea que un profesional de salud lo contacte?", ["Sí", "No"])
-if respuestas["contacto_profesional"] == "Sí":
-    respuestas["contacto"] = st.text_input("Correo electrónico o teléfono (opcional)")
-respuestas["comentarios"] = st.text_area("Comentarios adicionales")
+respuestas["seguro"] = st.radio("¿Cuenta con seguro médico de salud", ["Sí", "No"])
+if respuestas["seguro"] == "Sí":
+respuestas["tipo_seguro"] = st.multiselect("¿Qué tipo de seguro medico de salud?", ["Essalud", "SIS", "Privado", "Seguro universitario", "Otro"])
+    respuestas["economico"] = st.radio("¿Usted ha dejado de acudir a consultas médicas por motivos económicos", ["Sí", "No"])
+respuestas["distancia"] = st.radio("¿Usted encuentra dificultades para acceder a servicios de salud debido a la distancia", ["Sí", "No"])
+respuestas["sinatenccion"] = st.radio("¿En algún centro de salud lo han dejado de atender por su condición de étnica, orientación sexual o discapacidad", ["Sí", "No"])
+respuestas["creencias"] = st.radio("¿Ha dejado de realizarse procedimientos médicos por sus creencias religiosas o culturales", ["Sí", "No"])
+respuestas["discriminacion"] = st.radio("¿Ha experimentado discriminación o falta de comprensión cultural por parte del personal médico en el centro de salud que se atiende", ["Sí", "No"])
 
 # --- Botón Finalizar ---
 if st.button("Enviar respuestas"):
