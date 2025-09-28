@@ -128,4 +128,3 @@ if st.button("Enviar respuestas"):
     guardar_respuesta(respuestas)
     st.success("✅ Gracias, sus respuestas fueron registradas.")
 
-!pip install streamlit
