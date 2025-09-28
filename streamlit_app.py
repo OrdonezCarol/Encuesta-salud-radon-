@@ -77,7 +77,7 @@ respuestas["enf_respiratoria"] = st.multiselect("¿ Usted tiene diagnóstico de 
 respuestas["cancer_pulmon"] = st.radio("¿ Algun familiar con quien convivió con usted en la misma vivienda tiene diagnóstico de cáncer de pulmón?", ["Sí", "No", "Prefiero no decir"])
 
 # --- Sección E ---
-st.header("Sección E: Síntomas respiratorios. Instrucción: Marque si ha tenido estos síntomas desde 2021 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (1–5)")
+st.header("Sección E: Síntomas respiratorios. Instrucción: Marque si ha tenido estos síntomas desde 2023 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)")
 sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Dolor torácico", "Fatiga persistente"]
 respuestas_sintomas = {}
 for sintoma in sintomas:
