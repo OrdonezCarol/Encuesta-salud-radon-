@@ -105,7 +105,7 @@ respuestas["sintomas"] = respuestas_sintomas
 st.header("Sección F: Identificación de barreras de acceso a servicios de salud")
 respuestas["seguro"] = st.radio("¿Cuenta con seguro médico de salud", ["Sí", "No"])
 if respuestas["seguro"] == "Sí":
-respuestas["tipo_seguro"] = st.multiselect("¿Qué tipo de seguro medico de salud?", ["Essalud", "SIS", "Privado", "Seguro universitario", "Otro"])
+respuestas["tipo_seguro"] = st.multiselect("¿ Qué tipo de seguro medico de salud?", ["Essalud", "SIS", "Privado", "Seguro universitario", "Otro"])
 
     respuestas["economico"] = st.radio("¿Usted ha dejado de acudir a consultas médicas por motivos económicos", ["Sí", "No"])
 respuestas["distancia"] = st.radio("¿Usted encuentra dificultades para acceder a servicios de salud debido a la distancia", ["Sí", "No"])
