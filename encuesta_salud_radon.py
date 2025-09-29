@@ -7,7 +7,7 @@ st.markdown(
     .section-title {
         font-size: 28px !important;
         font-weight: bold;
-        color: #2C3E50;   /* morado */
+        color: 317f43;   /* verde señales */
         font-family: 'Georgia', serif;
         margin-top: 30px;
         margin-bottom: 15px;
