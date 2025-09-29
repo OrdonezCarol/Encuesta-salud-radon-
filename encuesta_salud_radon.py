@@ -100,7 +100,7 @@ respuestas["enf_respiratoria_fam"] = st.multiselect("¿ Algun familiar con quien
 # --- Sección E ---
 st.markdown('<div class="section-title">Sección E: Síntomas respiratorios</div>', unsafe_allow_html=True) 
 st.markdown('<div class="section-title">Instrucción: Marque si ha tenido estos síntomas desde 2016 hasta la fecha (2025). Para cada síntoma indique año aproximado de inicio si lo recuerda y la severidad actual (escala 1 = leve a 5 = muy severo)</div>', unsafe_allow_html=True) 
-sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Pérdida de apetito", "Fiebre o sensación de alza termica", "Dolor torácico", "Fatiga persistente","atención médica", "pruebas adicionales"]
+sintomas = ["Tos persistente", "Tos con sangre", "Disnea", "Pérdida de peso", "Pérdida de apetito", "Fiebre o sensación de alza termica", "Dolor torácico", "Fatiga persistente"]
 respuestas_sintomas = {}
 for sintoma in sintomas:
     con_sintoma = st.checkbox(f"{sintoma}", key=f"sintoma_{sintoma}")
