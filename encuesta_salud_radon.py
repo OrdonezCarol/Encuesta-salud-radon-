@@ -7,7 +7,7 @@ st.markdown(
     .section-title {
         font-size: 28px !important;
         font-weight: bold;
-        color: #B22222;   /* rojo */
+        color: #B4B0082;   /* indigo */
         font-family: 'Georgia', serif;
         margin-top: 30px;
         margin-bottom: 15px;
