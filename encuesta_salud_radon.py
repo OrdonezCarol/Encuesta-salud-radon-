@@ -50,7 +50,7 @@ if consentimiento == "No, no acepto":
 respuestas = {"consentimiento": consentimiento}
 
 # --- Sección A ---
-st.markdown('<div class="section-title">Sección A: Vínculo con medición de radón</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Sección A: Datos generales del participante</div>', unsafe_allow_html=True)
 respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
 respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
 respuestas["nivel_educativo"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Otro"])
@@ -59,7 +59,7 @@ respuestas["estado_civil"] = st.selectbox("Estado civil", ["Soltero", "Casado", 
 respuestas["distrito de residencia"] = st.text_input("Escriba el distrito")
 
 # --- Sección B ---
-st.markdown('<div class="section-title">Sección B: Datos sociodemográficos</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Sección B: Vinculo con el monitoreo de radon</div>', unsafe_allow_html=True)
 vivienda_actual = st.radio("¿Actualmente vive en la misma vivienda desde el 2016?", ["Sí", "No"])
 respuestas["vive_misma_vivienda"] = vivienda_actual
 if vivienda_actual == "No":
