@@ -7,7 +7,7 @@ st.markdown(
     .section-title {
         font-size: 28px !important;
         font-weight: bold;
-        color: #2C3E50;   /* azul oscuro */
+        color: #2C3E50;   /* morado */
         font-family: 'Georgia', serif;
         margin-top: 30px;
         margin-bottom: 15px;
@@ -38,7 +38,7 @@ st.markdown('<div class="section-title">Encuesta: Salud respiratoria y exposici�
 st.markdown('<div class="section-title">Consentimiento informado</div>', unsafe_allow_html=True)
 
 consentimiento = st.radio(
-   " Usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda en el 2016-2019. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria, anónima y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración aproximada de 10 minutos. ¿Acepta participar?",
+   " Usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda en el 2016-2019. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria, anónima y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración de aproximadamente 10 minutos. ¿Acepta participar?",
     ["Sí, acepto", "No, no acepto"]
 )
 
