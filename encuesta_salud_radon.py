@@ -51,6 +51,7 @@ respuestas = {"consentimiento": consentimiento}
 
 # --- Sección A ---
 st.markdown('<div class="section-title">Sección A: Datos generales del participante</div>', unsafe_allow_html=True)
+respuestas["nombre del participante"] = st.text_input("Escriba su nombre y apellido")
 respuestas["edad"] = st.number_input("Edad (años)", min_value=0, step=1)
 respuestas["sexo"] = st.radio("Sexo", ["Femenino", "Masculino"])
 respuestas["nivel_educativo actual"] = st.selectbox("Nivel educativo", ["Universitario en curso", "Titulado universitario", "Posgrado", "Técnico", "Otro"])
