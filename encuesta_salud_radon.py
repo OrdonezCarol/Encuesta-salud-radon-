@@ -38,7 +38,7 @@ st.markdown('<div class="section-title">Encuesta: Salud respiratoria y exposici�
 st.markdown('<div class="section-title">Consentimiento informado</div>', unsafe_allow_html=True)
 
 consentimiento = st.radio(
-   " Usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda en el 2016-2019. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria, anónima y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración de aproximadamente 10 minutos. ¿Acepta participar?",
+   " Usted participó en un estudio en el que se realizaron mediciones de radón en su vivienda en el 2016-2019. Por tal motivo, le invitamos a participar en la presente investigación. Su participación es completamente voluntaria y confidencial, y puede retirarse en cualquier momento sin ninguna consecuencia. La encuesta tiene una duración de aproximadamente 10 minutos. ¿Acepta participar?",
     ["Sí, acepto", "No, no acepto"]
 )
 
